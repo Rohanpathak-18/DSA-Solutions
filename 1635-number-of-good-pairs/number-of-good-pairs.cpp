@@ -1,24 +1,40 @@
-                             //optimal approach(Hashmap)      
 class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
         int n = nums.size();
-        unordered_map<int , int>freq;
-        
-        for(int & num : nums){
-            freq[num]++;
-        }
-
         int result = 0;
+        unordered_map<int , int>freq;
 
-        for(auto &it : freq){
-            int count = it.second;
-
-            result += (count * (count-1))/2;
+        for(int &num : nums){
+            result += freq[num];
+            freq[num]++;
         }
         return result;
     }
 };
+
+
+                             //optimal approach(Hashmap)      
+// class Solution {
+// public:
+//     int numIdenticalPairs(vector<int>& nums) {
+//         int n = nums.size();
+//         unordered_map<int , int>freq;
+        
+//         for(int & num : nums){
+//             freq[num]++;
+//         }
+
+//         int result = 0;
+
+//         for(auto &it : freq){
+//             int count = it.second;
+
+//             result += (count * (count-1))/2;
+//         }
+//         return result;
+//     }
+// };
 
 
 
